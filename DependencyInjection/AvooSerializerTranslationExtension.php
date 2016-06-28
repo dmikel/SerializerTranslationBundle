@@ -55,7 +55,7 @@ class AvooSerializerTranslationExtension extends Extension
             $dir = $container->getParameterBag()->resolveValue($config['metadata']['file_cache']['dir']);
 
             if (!file_exists($dir)) {
-                if (!$rs = @mkdir($dir, 0777, true)) {
+                if (!@mkdir($dir, 0777, true)) {
                     throw new \RuntimeException(sprintf('Could not create cache directory "%s".', $dir));
                 }
             }
